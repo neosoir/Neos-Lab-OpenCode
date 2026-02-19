@@ -1,0 +1,32 @@
+services:
+
+# ============= Open Code =============
+  opencode:
+    image: node:20-slim
+    container_name: ctr_opencode_dev
+    working_dir: /workspace/.opencode
+    tty: true
+    stdin_open: true
+    user: "${HOST_UID}:${HOST_GID}"
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ./:/workspace
+      - ./.opencode:/workspace/.opencode
+    networks:
+      - net_opencode_dev
+    command: >
+      /bin/bash -c "
+        if [ ! -d node_modules/opencode-ai ]; then
+          echo 'Instalando OpenCode (local, no global)...' &&
+          npm install --no-audit --no-fund opencode-ai;
+        fi &&
+        echo 'OpenCode listo (modo local, permisos correctos).' &&
+        exec bash
+      "
+
+# ============= NETWORK =============
+networks:
+  net_opencode_dev:
+    name: net_opencode_dev
+    driver: bridge
