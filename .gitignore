@@ -1,6 +1,3 @@
-*
-!docker-compose.yml
-!.env.example
-!.opencode/
-!.opencode/**
-!.gitignore
+Projects
+node_modules
+.env
