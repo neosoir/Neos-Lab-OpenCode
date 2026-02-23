@@ -2,7 +2,7 @@
 
 ## Estructura del proyecto
 
-Este es un monorepo con múltiples proyectos en la carpeta `Projects/`.
+Este es un monorepo con múltiples proyectos en la carpeta `Projects/`. Cada vez que entres a un repo e busca su archivo AGENTS.md para que tengas el contexto cada proyecto.
 
 ## Contexto tecnológico
 
