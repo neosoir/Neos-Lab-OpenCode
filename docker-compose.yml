@@ -1,31 +1,63 @@
 services:
 
-# ============= Open Code =============
+  # ============= Open Code =============
   opencode:
     image: node:20-slim
-    container_name: ctr_opencode_dev
+    container_name: ctr_code_opencode
     working_dir: /workspace
     tty: true
     stdin_open: true
     user: "${HOST_UID}:${HOST_GID}"
     environment:
       - TZ=${TZ}
+      - OLLAMA_HOST=http://ollama:11434
     volumes:
       - ./:/workspace
-    networks:
-      - net_opencode_dev
+      - .config/opencode:/home/node/.config/opencode  # Mapeo del archivo de config
+    depends_on:
+      - ollama
     command: >
       /bin/bash -c "
         if [ ! -d node_modules/opencode-ai ]; then
-          echo 'Instalando OpenCode (local, no global)...' &&
+          echo 'Instalando OpenCode (local)...' &&
           npm install --no-audit --no-fund opencode-ai;
         fi &&
-        echo 'OpenCode listo (modo local, permisos correctos).' &&
         exec bash
       "
+    networks:
+      - net_code
+
+  # ============= Ollama =============
+  ollama:
+    image: ollama/ollama:0.13.1
+    container_name: ctr_code_ollama
+    restart: unless-stopped
+    environment:
+      # - OLLAMA_ORIGINS=${FRONT_URL}
+      - OLLAMA_NUM_THREADS=${OLLAMA_NUM_THREADS}
+      - OLLAMA_CONTEXT_LENGTH=${OLLAMA_CONTEXT_LENGTH}
+      - OLLAMA_MAX_LOADED_MODELS=1
+      - OLLAMA_KEEP_ALIVE=15m
+    expose:
+      - "11434"
+    volumes:
+      - vol_code_ollama:/root/.ollama
+    deploy:
+      resources:
+        limits:
+          cpus: ${OLLAMA_CPU_LIMIT}
+          memory: ${OLLAMA_RAM_LIMIT}
+    networks:
+      - net_code
 
 # ============= NETWORK =============
 networks:
-  net_opencode_dev:
-    name: net_opencode_dev
+  net_code:
+    name: net_code
     driver: bridge
+
+# ============= VOLUMES =============
+volumes:
+  vol_code_ollama:
+    name: vol_code_ollama
+    driver: local

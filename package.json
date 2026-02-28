@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@ai-sdk/openai-compatible": "^2.0.31",
     "opencode-ai": "^1.2.15"
   }
 }
