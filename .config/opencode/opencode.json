@@ -9,12 +9,12 @@
         "baseURL": "http://ollama:11434/v1"
       },
       "models": {
-        "deepseek-coder:6.7b": {
-          "name": "DeepSeek Coder 6.7B"
+        "deepseek-r1:1.5b": {
+          "name": "DeepSeek R1 1.5B"
         }
       }
     }
   },
 
-  "model": "ollama/deepseek-coder:6.7b"
+  "model": "ollama/deepseek-r1:1.5b"
 }
