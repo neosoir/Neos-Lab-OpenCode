@@ -2,7 +2,10 @@ services:
 
   # ============= Open Code =============
   opencode:
-    image: node:20-slim
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: img_code_opencode
     container_name: ctr_code_opencode
     working_dir: /workspace
     tty: true
@@ -12,7 +15,7 @@ services:
       - TZ=${TZ}
       - OLLAMA_HOST=http://ollama:11434
     volumes:
-      - ./:/workspace
+      - ./:/workspace:rw,uid=${HOST_UID},gid=${HOST_GID}
     #  - .config/opencode:/home/node/.config/opencode  # Mapeo del archivo de config
     depends_on:
       - ollama
