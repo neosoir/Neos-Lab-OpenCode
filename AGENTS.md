@@ -23,3 +23,4 @@ Los proyectos utilizan principalmente:
    - `Dockerfile` → imagen del contenedor
    - Configuraciones de Nginx (desarrollo y producción)
 4. La mayoría del tiempo se trabaja con `docker-compose.dev.yml` (configuración local)
+5. No puede ejecutar los contenedores de los proyectos por tu mismo pide ayuda al usuario para eso. pero si tienes curl y wscat para debuguear ciertas configuraciones
