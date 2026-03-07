@@ -16,7 +16,7 @@ services:
       - OLLAMA_HOST=http://ollama:11434
     volumes:
       - ./:/workspace:rw,uid=${HOST_UID},gid=${HOST_GID}
-    #  - .config/opencode:/home/node/.config/opencode  # Mapeo del archivo de config
+      - .config/opencode:/home/node/.config/opencode  # Mapeo del archivo de config
     depends_on:
       - ollama
     command: >
@@ -32,15 +32,19 @@ services:
 
   # ============= Ollama =============
   ollama:
-    image: ollama/ollama:0.13.1
+    image: ollama/ollama:0.17.7
     container_name: ctr_code_ollama
     restart: unless-stopped
     environment:
       # - OLLAMA_ORIGINS=${FRONT_URL}
-      - OLLAMA_NUM_THREADS=${OLLAMA_NUM_THREADS}
-      - OLLAMA_CONTEXT_LENGTH=${OLLAMA_CONTEXT_LENGTH}
       - OLLAMA_MAX_LOADED_MODELS=1
       - OLLAMA_KEEP_ALIVE=15m
+      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL}
+      - OLLAMA_NUM_THREADS=${OLLAMA_NUM_THREADS}
+      - OLLAMA_CONTEXT_LENGTH=${OLLAMA_CONTEXT_LENGTH}
+      - OLLAMA_BATCH_SIZE=${OLLAMA_BATCH_SIZE}
+      - OLLAMA_USE_MMAP=${OLLAMA_USE_MMAP}
+      - OLLAMA_VULKAN=${OLLAMA_VULKAN}
     expose:
       - "11434"
     volumes:

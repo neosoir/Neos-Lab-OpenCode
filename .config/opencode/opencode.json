@@ -9,12 +9,24 @@
         "baseURL": "http://ollama:11434/v1"
       },
       "models": {
-        "deepseek-r1:1.5b": {
-          "name": "DeepSeek R1 1.5B"
+        "qwen2.5-coder:3b": {
+          "name": "Qwen 2.5 Coder 3b",
+          "supportsTools": false
+        },
+        "qwen2.5-coder:7b": {
+          "name": "Qwen 2.5 Coder 7b",
+          "supportsTools": false
+        },
+        "gemma3:1b": {
+          "name": "Gemma3 1b",
+          "supportsTools": false
+        },
+        "qwen3.5:4b": {
+          "name": " Qwen 3.5 4b"
         }
       }
     }
   },
 
-  "model": "ollama/deepseek-r1:1.5b"
+  "model": "ollama/qwen3.5:4b"
 }
