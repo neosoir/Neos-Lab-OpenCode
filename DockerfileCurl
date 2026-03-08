@@ -1,0 +1,10 @@
+FROM node:20
+
+USER node
+
+WORKDIR /workspace
+
+# instalar opencode
+RUN curl -fsSL https://opencode.ai/install | bash
+
+CMD ["bash"]

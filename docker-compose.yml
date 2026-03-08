@@ -16,7 +16,7 @@ services:
       - OLLAMA_HOST=http://ollama:11434
     volumes:
       - ./:/workspace:rw,uid=${HOST_UID},gid=${HOST_GID}
-      - .config/opencode:/home/node/.config/opencode  # Mapeo del archivo de config
+      # - .config/opencode:/home/node/.config/opencode  # Mapeo del archivo de config
     depends_on:
       - ollama
     command: >
@@ -62,3 +62,25 @@ networks:
   net_code:
     name: net_code
     driver: bridge
+
+
+  # opencode:
+  #   build:
+  #     context: .
+  #     dockerfile: DockerfileCurl
+  #   image: img_code_opencode
+  #   container_name: ctr_code_opencode
+  #   working_dir: /workspace
+  #   tty: true
+  #   stdin_open: true
+  #   user: "${HOST_UID}:${HOST_GID}"
+  #   environment:
+  #     - TZ=${TZ}
+  #     - OLLAMA_HOST=http://ollama:11434
+  #   volumes:
+  #     - ./:/workspace
+  #     # - opencode:/home/node/.opencode
+  #   depends_on:
+  #     - ollama
+  #   networks:
+  #     - net_code
