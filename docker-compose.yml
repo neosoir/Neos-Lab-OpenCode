@@ -16,6 +16,7 @@ services:
       - OLLAMA_HOST=http://ollama:11434
     volumes:
       - ./:/workspace:rw,uid=${HOST_UID},gid=${HOST_GID}
+      - ./opencode-data:/home/node/.local:rw,uid=${HOST_UID},gid=${HOST_GID}
       # - .config/opencode:/home/node/.config/opencode  # Mapeo del archivo de config
     depends_on:
       - ollama

@@ -4,3 +4,9 @@ node_modules
 Projects-Legacy
 Setup
 Neos-Lab-Setup
+
+# Ignore everything inside
+opencode-data/*
+
+# But keep the directory itself
+!opencode-data/.gitkeep
