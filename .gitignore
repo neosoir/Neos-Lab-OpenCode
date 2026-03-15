@@ -10,3 +10,5 @@ opencode-data/*
 
 # But keep the directory itself
 !opencode-data/.gitkeep
+
+Docker

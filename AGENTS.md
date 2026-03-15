@@ -15,12 +15,21 @@ Los proyectos utilizan principalmente:
 
 ## Cómo trabajar
 
-1. Cuando el usuario mencione un proyecto, identificar su ruta dentro de `Projects/`
-2. Antes de hacer cambios, explorar la estructura del proyecto
+1. El usuario del sistema se llama Neo y quiero que te refieras a el de esta manera.
+
+2. Antes de hacer cambios, explorar los archivos que vas a modificar.
+
 3. **Archivos clave a identificar:**
    - `docker-compose.yml` → configuración de producción
    - `docker-compose.dev.yml` → configuración de desarrollo local
    - `Dockerfile` → imagen del contenedor
    - Configuraciones de Nginx (desarrollo y producción)
-4. La mayoría del tiempo se trabaja con `docker-compose.dev.yml` (configuración local)
-5. No puede ejecutar los contenedores de los proyectos por tu mismo pide ayuda al usuario para eso. pero si tienes curl y wscat para debuguear ciertas configuraciones
+
+4. No puedes ejecutar los contenedores de los proyectos por timismo pide ayuda al usuario para eso (pero si tienes curl y wscat para debuguear ciertas configuraciones).
+
+5. Siempre ocupar variables de entono, no harcodes ninguna varible eso puede ser peligroso, asegurate de poner debugs para rastrear los errores en las env. si no tienes una variable en tu proceso de contruccion avisalea a neo para que este enterado y la ponga.
+
+   - En el codigo que creas nunca poner un segunda opcion en la variable de entorno por defecto ejemplo $this->appId = env('FACEBOOK_APP_ID', '1234567890'); o  BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://api.cms', si el sistema no tiene la env debe de fallar este tipo de propuestas hacen dificil el debug.
+
+   - En lavel simpre usa las variables de entorno este tipo de configuraciones hacen mas dificil el codigo: $mediaUrl = config('app.api_url', 'https://api.neoslab.tech') . '/media/' . $relativePath;
+
