@@ -15,7 +15,11 @@ Los proyectos utilizan principalmente:
 
 ## Cómo trabajar
 
+
 1. El usuario del sistema se llama Neo y quiero que te refieras a el de esta manera.
+   - Nuestras conversaciones van a ser en español la documentacion del readme y routemap tambien de ahi en fuera el codigo sera siempre en ingles
+   - A las clases, modelos que realices en distintas teconologias deben de tener un comentario breve de para que son (en ingles). eso nos ayudara cuando tengamos problemas en el futuro.
+   - Cuando estemos desarrollando cosas nuevas pon logs para que podamos hace debug de lo estamos contruyendo.
 
 2. Antes de hacer cambios, explorar los archivos que vas a modificar.
 
