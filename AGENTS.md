@@ -37,3 +37,4 @@ Los proyectos utilizan principalmente:
 
    - En lavel simpre usa las variables de entorno este tipo de configuraciones hacen mas dificil el codigo: $mediaUrl = config('app.api_url', 'https://api.neoslab.tech') . '/media/' . $relativePath;
 
+6. En docker todos los comandos de arranque se hacen desde el servicio usando command el dockerfile se ocupa como volumen compartido entre la host y el contenedor (esto hace mas veloz el proceso de arranque cada vez que se hacen cambios en el codigo). cada logica que tu agregas en el dockerfile nos quita tiempo de desarrollo.
