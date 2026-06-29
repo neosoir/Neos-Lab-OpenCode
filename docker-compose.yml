@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: img_code_opencode
+    image: img_code_opencode:1.0
     container_name: ctr_code_opencode
     working_dir: /workspace
     tty: true
@@ -33,7 +33,7 @@ services:
 
   # ============= Ollama =============
   ollama:
-    image: ollama/ollama:0.17.7
+    image: ollama/ollama:0.30.11
     container_name: ctr_code_ollama
     restart: unless-stopped
     environment:
