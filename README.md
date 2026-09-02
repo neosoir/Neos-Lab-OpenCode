@@ -1,4 +1,4 @@
-# OpenCoVive
+# OpenCode
 
 Entorno de desarrollo containerizado para trabajar con OpenCode AI.
 
@@ -39,3 +39,9 @@ workspace/
 ```
 
 Todos los proyectos que deseas analizar deben estar dentro de la carpeta `Projects/`. La IA podrá acceder y analizar todos los proyectos de manera anidada desde esa ubicación.
+
+
+## Acualizar la version de opencode
+* Buscar las nuevas versiones de los programas de package.json
+* Borrar node modules
+* Arrancar los contenedores y actualizara todo

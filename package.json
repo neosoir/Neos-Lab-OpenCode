@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@ai-sdk/openai-compatible": "^3.0.1",
-    "opencode-ai": "^1.17.11",
+    "@ai-sdk/openai-compatible": "^3.0.43",
+    "opencode-ai": "^1.18.26",
     "wscat": "^6.1.0"
   }
 }
